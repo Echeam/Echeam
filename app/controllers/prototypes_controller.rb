@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :set_prototype, only: :show
+  before_action :set_prototype, only: [:show, :edit]
 
   def index
     @prototypes = Prototype.all
@@ -21,6 +21,15 @@ class PrototypesController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    Prototype.update(prototype_params)
+    flash[:alert] = 'Prototype was successfully updated.'
+    render :index
   end
 
   def destroy
