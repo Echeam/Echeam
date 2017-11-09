@@ -4,9 +4,9 @@
     Action
   %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
     %li
-      %a{"data-method" => "delete", :href => "/prototypes/#{params[:id]}", :rel => "nofollow"} Delete
+      %a{"data-method" => "delete", :href => "/prototypes/#{prototype.id}", :rel => "nofollow"} Delete
     %li
-      %a{:href => "/prototypes/#{params[:id]}/edit" } Edit
+      %a{:href => "/prototypes/#{prototype.id}/edit" } Edit
   .thumbnail
     = link_to image_tag(prototype.set_main_thumbnail), prototype_path(prototype)
     .caption
