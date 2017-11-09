@@ -34,8 +34,9 @@ class PrototypesController < ApplicationController
 
   def destroy
     prototype = Prototype.find(params[:id])
-    prototype.destroy
+    prototype.destroy if current_user.id == prototype.user_id
   end
+
 
   private
 
