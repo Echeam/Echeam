@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :set_prototype, only: [:show, :edit]
+  before_action :set_prototype, only: [:show, :edit, :update]
 
   def index
     @prototypes = Prototype.all
@@ -27,9 +27,11 @@ class PrototypesController < ApplicationController
   end
 
   def update
-    Prototype.update(prototype_params)
-    flash[:alert] = 'Prototype was successfully updated.'
-    render :index
+    if @prototype.update(update_prototype_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -51,6 +53,16 @@ class PrototypesController < ApplicationController
       :concept,
       :user_id,
       captured_images_attributes: [:content, :status]
+    )
+  end
+
+  def update_prototype_params
+    params.require(:prototype).permit(
+      :title,
+      :catch_copy,
+      :concept,
+      :user_id,
+      captured_images_attributes: [:id, :content, :status]
     )
   end
 end
