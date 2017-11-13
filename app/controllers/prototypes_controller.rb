@@ -28,7 +28,7 @@ class PrototypesController < ApplicationController
 
   def update
     if @prototype.update(update_prototype_params)
-      redirect_to root_path
+      redirect_to :root, notice: '編集が完了しました'
     else
       render :edit
     end
