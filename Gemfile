@@ -17,6 +17,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'rmagick', '~> 2.16.0'
 
+
 group :development, :test do
   gem 'byebug'
 end
