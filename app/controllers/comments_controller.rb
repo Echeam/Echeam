@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :get_prototype_comments, only: [:index, :new]
+  before_action :get_prototype_comments, only: [:index, :new,:destroy]
 
 
   def index
@@ -12,6 +12,19 @@ class CommentsController < ApplicationController
   def create
     Comment.create(comment_params)
     redirect_to root_path
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy if @comment.user_id == current_user.id
+    redirect_to root_path
+  end
+
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
   end
 
   private
