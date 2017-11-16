@@ -45,8 +45,7 @@
         %p= comment.user.name
       %li
         %p= comment.content
-    - if user_signed_in?
-      = form_for [@prototype, @comment] do |f|
-        = f.text_area :content, placeholder: "Please comment"
-        = f.submit value: "Send"
+    = form_for [@prototype, @comment] do |f|
+      = f.text_area :content, placeholder: "Please comment"
+      = f.submit value: "Send"
 
