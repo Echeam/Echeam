@@ -20,6 +20,7 @@ gem 'fog'
 gem 'kaminari'
 
 
+
 group :development, :test do
   gem 'byebug'
 end
