@@ -40,8 +40,11 @@
   .row.proto-comments
     #h4 コメント一覧
     - @prototype.comments.each do |comment|
+      .comment_user_name
       %p= comment.user.name
+      .comment_content
       %p= comment.content
+      .action-button
       - if comment.user_id == current_user.id
         %a{"data-method" => "delete", :href => "/prototypes/#{@prototype.id}/comments/#{comment.id}", :rel => "nofollow"} 
           Delete
