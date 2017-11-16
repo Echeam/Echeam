@@ -1,6 +1,7 @@
 class CapturedImage < ActiveRecord::Base
   belongs_to :Prototype
 
+  # model Captured_images
   mount_uploader :content, PrototypeImageUploader
 
   enum status: %i(main sub)
