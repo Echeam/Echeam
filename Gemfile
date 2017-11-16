@@ -16,6 +16,7 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'devise'
 gem 'carrierwave'
 gem 'rmagick', '~> 2.16.0'
+gem 'fog'
 gem 'kaminari'
 
 group :development, :test do
