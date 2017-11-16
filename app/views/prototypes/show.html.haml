@@ -39,13 +39,14 @@
           %a{href: "#", class: "btn btn-default"} wireframe
   .row.proto-comments
     #h4 コメント一覧
-    %ul
     - @prototype.comments.each do |comment|
-      %li
-        %p= comment.user.name
-      %li
-        %p= comment.content
-    = form_for [@prototype, @comment] do |f|
-      = f.text_area :content, placeholder: "Please comment"
-      = f.submit value: "Send"
+      %p= comment.user.name
+      %p= comment.content
+      - if comment.user_id == current_user.id
+        %a{"data-method" => "delete", :href => "/prototypes/#{@prototype.id}/comments/#{comment.id}", :rel => "nofollow"} 
+          Delete
+    -if user_signed_in?
+      = form_for [@prototype, @comment] do |f|
+        = f.text_area :content, placeholder: "Please comment"
+        = f.submit value: "Send"
 
