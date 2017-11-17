@@ -1,11 +1,11 @@
 $(function(){
   function buildHTML(comment){
-    var html = `<div class = "comment_user_name>
-                <p>${ comment.user_name }</p>
+    var html = '<div class = "comment_user_name>
+                <p> + comment.user_name + </p>
                 </div>
                 <div class = "comment_content>
-                <p>${ comment.content }</p>
-                </div>`
+                <p> + comment.content + </p>
+                </div>'
     return html;
   }
     $('#new_comment').on('submit', function(e){
