@@ -48,8 +48,8 @@
       - if comment.user_id == current_user.id
         %a{"data-method" => "delete", :href => "/prototypes/#{@prototype.id}/comments/#{comment.id}", :rel => "nofollow"} 
           Delete
-    -if user_signed_in?
-      = form_for [@prototype, @comment] do |f|
-        = f.text_area :content, placeholder: "Please comment"
-        = f.submit value: "Send"
+  -if user_signed_in?
+    = form_for [@prototype, @comment] do |f|
+      = f.text_area :content, placeholder: "Please comment"
+      = f.submit value: "Send"
 
