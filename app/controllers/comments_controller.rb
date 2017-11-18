@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :get_prototype_comments, only: [:index, :new,:destroy]
+  before_action :get_prototype_comments, only: [:index, :new, :destroy, :edit]
 
 
   def index
@@ -25,9 +25,12 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
+    
   end
 
   def update
+    @comment = Comment.update(comment_params)
+
   end
 
   private

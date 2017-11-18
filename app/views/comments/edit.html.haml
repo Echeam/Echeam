@@ -1,0 +1,3 @@
+= form_for [@prototype, @comment], :url => { :controller => :comments, :action => :update }  do |f| 
+  = f.text_area :content, placeholder: "Please comment"
+  = f.submit value: "Send"
