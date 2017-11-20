@@ -6,7 +6,15 @@ $(document).on('turbolinks:load', function() {
                  '</div>' +
                  '<div class = comment_content>' +
                  '<p>'+comment.content+'</p>'
+                 '</div>'+
+                 '<div class= action-button>'+
+                 '<a data-method="delete" href="/prototypes/:prototype_id/comments/:id" rel="nofollow">'+
+                 '</a>'+
                  '</div>'
+                 '<div class= action-button>'+
+                 '<a data-method="get herf="/prototypes/:prototype_id/comments/:id/edit" rel="nofollow">'+
+                 '</a>'
+                 '<div>'
       return html;
    }
       $('#new_comment').on('submit', function(e){
