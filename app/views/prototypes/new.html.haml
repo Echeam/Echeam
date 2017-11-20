@@ -1,3 +1,5 @@
+%script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+%script src="./assets/javascript/image_preview.js"
 .container.proto-new
   = form_for @prototype do |f|
     = f.hidden_field :user_id, value: current_user.id
