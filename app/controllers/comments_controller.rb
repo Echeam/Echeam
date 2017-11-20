@@ -20,16 +20,18 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy if @comment.user_id == current_user.id
-    redirect_to root_path
+    redirect_to prototype_path(params[:prototype_id]), notice: 'コメントを削除しました'
   end
 
   def edit
     @comment = Comment.find(params[:id])
-    
   end
 
   def update
-    @comment = Comment.update(comment_params)
+    @comment = Comment.find(params[:id])
+    @comment.update(comment_params)
+    redirect_to prototype_path(params[:prototype_id]), notice: 'コメントを編集しました'
+
 
   end
 
