@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :get_prototype_comments, only: [:index, :new, :destroy, :edit]
+  before_action :get_prototype_comments, only: [:index, :new, :create, :destroy, :edit]
 
 
   def index

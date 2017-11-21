@@ -1,20 +1,16 @@
 $(document).on('turbolinks:load', function() {
   $(function(){
     function buildHTML(comment){
-      var html = '<div class = comment_user_name>' +
-                 '<p>'+comment.user_name+'</p>' +
-                 '</div>' +
-                 '<div class = comment_content>' +
-                 '<p>'+comment.content+'</p>'
+      var html = '<div class = comment_user_name>'+
+                 '<p>'+comment.user_name+'</p>'+
                  '</div>'+
-                 '<div class= action-button>'+
-                 '<a data-method="delete" href="/prototypes/:prototype_id/comments/:id" rel="nofollow">'+
-                 '</a>'+
-                 '</div>'
-                 '<div class= action-button>'+
-                 '<a data-method="get herf="/prototypes/:prototype_id/comments/:id/edit" rel="nofollow">'+
-                 '</a>'
-                 '<div>'
+                 '<div class = comment_content>'+
+                 '<p>'+comment.content+'</p>'+
+                 '</div>';
+                 // '<div class= action-button>'+
+                 //  '<a data-method="delete" href="" rel="nofollow">'+Delete+'</a>'+
+                 //  '<a data-method="get" herf="" rel="nofollow">'+Edit+'</a>'+
+                 // '</div>';
       return html;
    }
       $('#new_comment').on('submit', function(e){
@@ -34,7 +30,7 @@ $(document).on('turbolinks:load', function() {
         .done(function(data){
           var html = buildHTML(data);
           $('.proto-comments').append(html)
-          $('#comment-content').val('')
+          $('#comment_content').val('')
         })
         .fail(function(){
           alert('error');
