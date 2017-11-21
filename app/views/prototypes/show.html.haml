@@ -45,11 +45,11 @@
       .comment_content
       %p= comment.content
       .action-button
-      - if comment.user_id == current_user.id
-        %a{"data-method" => "delete", :href => "/prototypes/#{@prototype.id}/comments/#{comment.id}", :rel => "nofollow"} 
-          Delete
-        %a{"data-method" => "get", :href => "/prototypes/#{@prototype.id}/comments/#{comment.id}/edit", :rel => "nofollow"} 
-          edit
+        - if comment.user_id == current_user.id
+          %a{"data-method" => "delete", :href => "/prototypes/#{@prototype.id}/comments/#{comment.id}", :rel => "nofollow"}
+            Delete
+          %a{"data-method" => "get", :href => "/prototypes/#{@prototype.id}/comments/#{comment.id}/edit", :rel => "nofollow"}
+            Edit
 
   -if user_signed_in?
     = form_for [@prototype, @comment] do |f|
