@@ -22,6 +22,7 @@ class PrototypesController < ApplicationController
 
   def show
     @comment = Comment.new
+    
   end
 
   def edit
