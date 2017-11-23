@@ -5,6 +5,14 @@ class PrototypesController < ApplicationController
     @prototypes = Prototype.all.page(params[:page]).per(2)
   end
 
+  def popular
+    @prototypes = Prototype.all.order("likes_count DESC").page(params[:page]).per(2)
+  end
+
+  def newest
+    @prototypes = Prototype.all.order("id DESC").page(params[:page]).per(2)
+  end
+
   def new
     @prototype = Prototype.new
     @prototype.captured_images.build
