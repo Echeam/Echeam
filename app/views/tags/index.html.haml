@@ -10,13 +10,13 @@
           = link_to "Popular", popular_prototypes_path
         %li.btn-default.btn-popular
           = link_to "Newest", newest_prototypes_path
-      = link_to "VIEW TAGS", tags_path, class: "btn btn-default col-lg-1"
+      = link_to "VIEW TAGS", "#", class: "btn btn-default col-lg-1"
 
 .container.proto-list
   .row
-    = render partial: 'prototypes/prototype', collection: @prototypes
-
-.text-center
-  %ul.pagination
-    = paginate(@prototypes)
-    %li.disabled
+    %ul.proto-tag-list.list-inline
+      %h4 TagList
+      - @tags.each do |tag|
+        %li
+          %a{href: "#", class: "btn btn-default"}
+            = tag.name

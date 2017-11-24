@@ -3,6 +3,7 @@
     <%= button_to prototype_like_path(prototype_id: prototype.id), method: :delete, id: "like-button", remote: true do %>
       <%= image_tag("icon_red_heart.png") %>
       <span>
+        LIKE
         <%= prototype.likes_count %>
       </span>
     <% end %>
@@ -10,6 +11,7 @@
     <%= button_to prototype_likes_path(prototype), id: "like-button", remote: true do %>
       <%= image_tag("icon_heart.svg") %>
       <span>
+        LIKE
         <%= prototype.likes_count %>
       </span>
     <% end %>
