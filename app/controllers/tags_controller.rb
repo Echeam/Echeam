@@ -4,6 +4,8 @@ class TagsController < ApplicationController
     @tags = Tag.all
   end
 
-  def destroy
+  def show
+    @tag = Tag.find(params[:id])
+    @prototypes = @tag.prototypes
   end
 end
