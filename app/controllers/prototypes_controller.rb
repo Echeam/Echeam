@@ -21,6 +21,8 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = Prototype.new(prototype_params)
+    # modelのprototype.rbにtags_first_or_initializeメソッドを記載
+    @prototype.tags_first_or_initialize(@prototype)
     if @prototype.save
       redirect_to :root, notice: 'New prototype was successfully created'
     else

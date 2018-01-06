@@ -29,4 +29,14 @@ class Prototype < ActiveRecord::Base
   def like_user(user_id)
    likes.find_by(user_id: user_id)
   end
+
+  # このメソッドで同じ名前のtagがあったらそれを引っ張ってきてそれとprototypeを紐付けている
+  def tags_first_or_initialize(prototype)
+    tags = []
+    prototype.tags.each do |prototype_tag|
+      tag = Tag.where(name: prototype_tag.name).first_or_initialize
+      tags << tag
+    end
+    prototype.tags = tags
+  end
 end
