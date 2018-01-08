@@ -48,9 +48,8 @@
           %p= comment.user.name
         .comment_content
           %p= comment.content
-      - if user_signed_in?
         .action-button
-          - if comment.user_id == current_user.id
+          - if user_signed_in? && comment.user_id == current_user.id
             %a{"data-method" => "delete", :href => "/prototypes/#{@prototype.id}/comments/#{comment.id}", :rel => "nofollow"}
               Delete
             %a{"data-method" => "get", :href => "/prototypes/#{@prototype.id}/comments/#{comment.id}/edit", :rel => "nofollow"}
