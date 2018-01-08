@@ -6,11 +6,13 @@ $(document).on('turbolinks:load', function() {
                  '</div>'+
                  '<div class = comment_content>'+
                  '<p>'+comment.content+'</p>'+
+                 '</div>'+
+                 '<div class= action-button>'+
+                  '<a data-method="delete" href="/prototypes/'+comment.prototype_id+'/comments/'+comment.id+'" rel="nofollow">'
+                  +'Delete'+
+                  '</a>'+' '+
+                  '<a data-method="get" herf="/prototypes/'+comment.prototype_id+'/comments/'+comment.id+'" rel="nofollow">'+'Edit'+'</a>'+
                  '</div>';
-                 // '<div class= action-button>'+
-                 //  '<a data-method="delete" href="" rel="nofollow">'+Delete+'</a>'+
-                 //  '<a data-method="get" herf="" rel="nofollow">'+Edit+'</a>'+
-                 // '</div>';
       return html;
    }
       $('#new_comment').on('submit', function(e){
@@ -29,7 +31,7 @@ $(document).on('turbolinks:load', function() {
 
         .done(function(data){
           var html = buildHTML(data);
-          $('.proto-comments').append(html)
+          $('.comments-list').append(html)
           $('#comment_content').val('')
         })
         .fail(function(){
