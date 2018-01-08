@@ -1,14 +1,14 @@
 <% if user_signed_in? %>
   <% if prototype.like_user(current_user.id) %>
-    <%= button_to prototype_like_path(prototype_id: prototype.id), method: :delete, id: "like-button", remote: true do %>
-      <%= image_tag("icon_red_heart.png") %>
+    <%= button_to prototype_like_path(prototype_id: prototype.id), method: :delete, id: "like-delete-button", remote: true do %>
+      <%= image_tag("icon_liked_heart.svg") %>
       <span>
         LIKE
         <%= prototype.likes_count %>
       </span>
     <% end %>
   <% else %>
-    <%= button_to prototype_likes_path(prototype), id: "like-button", remote: true do %>
+    <%= button_to prototype_likes_path(prototype), id: "like-add-button", remote: true do %>
       <%= image_tag("icon_heart.svg") %>
       <span>
         LIKE
@@ -19,6 +19,7 @@
 <% else %>
   <%= image_tag("icon_heart.svg") %>
     <span>
+      LIKE
       <%= prototype.likes_count %>
     </span>
 <% end %>

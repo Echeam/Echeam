@@ -659,3 +659,61 @@ body {
 
   }
 }
+
+/* -- new_comment_form ------------------------------------ */
+.new_comment{
+  margin: 10px 0!important;
+  #comment_content{
+    border:2px solid #e8e8e8;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    resize: none;
+  }
+  #comment-send-button{
+    color: #337ab7;
+    background-color: white;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    display: inherit;
+  }
+}
+/* -- new_comment_form ------------------------------------ */
+.edit_comment{
+  #comment_content{
+    border:2px solid #e8e8e8;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    resize: none;
+  }
+  #comment-send-button{
+    color: #337ab7;
+    background-color: white;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    display: inherit;
+  }
+
+}
+/* -- comment ------------------------------------ */
+
+.comment_user_name{
+  padding-top: 10px;
+    font-weight: bold;
+    color: #337ab7;
+}
+.comment_content {
+    width: 35%;
+    padding: 10px 10px;
+    font-weight: bold;
+    background: #FFF;
+    border: solid 3px #5aa7e8;/*線*/
+    border-radius: 10px;/*角の丸み*/
+    p {
+    margin: 0;
+    padding: 0;
+    }
+}
+
+.form-title{
+  margin-top: 20px;
+}

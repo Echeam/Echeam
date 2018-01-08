@@ -41,21 +41,23 @@
               = tag.name
 
   .row.proto-comments
-    #h4 コメント一覧
-    - @prototype.comments.each do |comment|
-      .comment_user_name
-      %p= comment.user.name
-      .comment_content
-      %p= comment.content
-      .action-button
-        - if comment.user_id == current_user.id
-          %a{"data-method" => "delete", :href => "/prototypes/#{@prototype.id}/comments/#{comment.id}", :rel => "nofollow"}
-            Delete
-          %a{"data-method" => "get", :href => "/prototypes/#{@prototype.id}/comments/#{comment.id}/edit", :rel => "nofollow"}
-            Edit
-
-  -if user_signed_in?
-    = form_for [@prototype, @comment] do |f|
-      = f.text_area :content, placeholder: "Please comment"
-      = f.submit value: "Send"
+    %h4 コメント一覧
+    .comments-list
+      - @prototype.comments.each do |comment|
+        .comment_user_name
+          %p= comment.user.name
+        .comment_content
+          %p= comment.content
+        .action-button
+          - if comment.user_id == current_user.id
+            %a{"data-method" => "delete", :href => "/prototypes/#{@prototype.id}/comments/#{comment.id}", :rel => "nofollow"}
+              Delete
+            %a{"data-method" => "get", :href => "/prototypes/#{@prototype.id}/comments/#{comment.id}/edit", :rel => "nofollow"}
+              Edit
+    -if user_signed_in?
+      .form-title
+        コメント送信フォーム
+      = form_for [@prototype, @comment] do |f|
+        = f.text_area :content, placeholder: "Please comment"
+        = f.submit value: "Send", id: "comment-send-button"
 
