@@ -37,7 +37,7 @@
       %ul.proto-tag-list.list-inline
         - @prototype.tags.each do |tag|
           %li
-            %a{href: "#", class: "btn btn-default"}
+            %a{href: "/tags/#{tag.id}", class: "btn btn-default"}
               = tag.name
 
   .row.proto-comments
